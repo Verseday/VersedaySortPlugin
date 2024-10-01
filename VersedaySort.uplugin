@@ -5,7 +5,7 @@
 	"FriendlyName": "Sort Any Array",
 	"Description": "A plugin for sorting an array of any type.",
 	"Category": "Blueprints",
-	"CreatedBy": "Udon-Tobira",
+	"CreatedBy": "Verseday",
 	"CreatedByURL": "",
 	"DocsURL": "",
 	"MarketplaceURL": "",
@@ -16,7 +16,7 @@
 	"Installed": true,
 	"Modules": [
 		{
-			"Name": "UdonSort",
+			"Name": "VersedaySort",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		}
