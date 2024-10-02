@@ -2,4 +2,4 @@
 
 #include "LogBlueprintSortLibrary.h"
 
-DEFINE_LOG_CATEGORY(LogUdonBlueprintSortLibrary)
+DEFINE_LOG_CATEGORY(LogVersedayBlueprintSortLibrary)

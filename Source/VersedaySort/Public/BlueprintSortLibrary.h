@@ -14,7 +14,7 @@
  * Blueprint Function Library of sorting-related functions.
  */
 UCLASS()
-class VERSEDAYSORT_API UUdonBlueprintSortLibrary
+class VERSEDAYSORT_API UVersedayBlueprintSortLibrary
     : public UBlueprintFunctionLibrary {
 	GENERATED_BODY()
 
@@ -105,7 +105,7 @@ public:
 		// if comparison function isn't exist
 		if (!ComparisonFunction) {
 			// output error
-			UE_LOG(LogUdonBlueprintSortLibrary, Error,
+			UE_LOG(LogVersedayBlueprintSortLibrary, Error,
 			       TEXT("Comparison function '%s' not found on object: %s"),
 			       *ComparisonFunctionName.ToString(), *Object->GetName());
 

@@ -11,7 +11,8 @@
  *
  */
 UCLASS()
-class VERSEDAYSORT_API UUdonCompareString: public UBlueprintFunctionLibrary {
+class VERSEDAYSORT_API UVersedayCompareString
+    : public UBlueprintFunctionLibrary {
 	GENERATED_BODY()
 
 public:

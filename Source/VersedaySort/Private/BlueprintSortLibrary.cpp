@@ -7,22 +7,24 @@
  * Swapping an instance of this class with the Swap function will swap the
  * contents in the actual memory.
  */
-class UdonTransparentlySwappablePtr {
+class VersedayTransparentlySwappablePtr {
 public:
 	// constructor
-	UdonTransparentlySwappablePtr(void* InTargetPtr, int32 InSize)
+	VersedayTransparentlySwappablePtr(void* InTargetPtr, int32 InSize)
 	    : TargetPtr(InTargetPtr), Size(InSize) {}
 
 	// delete copy, move constructors
-	UdonTransparentlySwappablePtr(const UdonTransparentlySwappablePtr&)  = delete;
-	UdonTransparentlySwappablePtr(UdonTransparentlySwappablePtr&& other) = delete;
+	VersedayTransparentlySwappablePtr(const VersedayTransparentlySwappablePtr&) =
+	    delete;
+	VersedayTransparentlySwappablePtr(VersedayTransparentlySwappablePtr&& other) =
+	    delete;
 
 public:
 	// delete copy, move assignment operators
-	UdonTransparentlySwappablePtr&
-	    operator=(const UdonTransparentlySwappablePtr& other) = delete;
-	UdonTransparentlySwappablePtr&
-	    operator=(UdonTransparentlySwappablePtr&& other) = delete;
+	VersedayTransparentlySwappablePtr&
+	    operator=(const VersedayTransparentlySwappablePtr& other) = delete;
+	VersedayTransparentlySwappablePtr&
+	    operator=(VersedayTransparentlySwappablePtr&& other) = delete;
 
 public:
 	void*       TargetPtr;
@@ -30,11 +32,11 @@ public:
 };
 
 /**
- * swap instances of UdonTransparentlySwappablePtr
+ * swap instances of VersedayTransparentlySwappablePtr
  */
 template <>
-inline void Swap(UdonTransparentlySwappablePtr& A,
-                 UdonTransparentlySwappablePtr& B) {
+inline void Swap(VersedayTransparentlySwappablePtr& A,
+                 VersedayTransparentlySwappablePtr& B) {
 	// The size of the point destination of A must be as same as the size of the
 	// point destination of B.
 	check(A.Size == B.Size);
@@ -43,7 +45,7 @@ inline void Swap(UdonTransparentlySwappablePtr& A,
 	FMemory::Memswap(A.TargetPtr, B.TargetPtr, A.Size);
 }
 
-void UUdonBlueprintSortLibrary::GenericSortAnyArray(
+void UVersedayBlueprintSortLibrary::GenericSortAnyArray(
     void* TargetArray, const FArrayProperty& ArrayProperty,
     UFunction& ComparisonFunction) {
 	// helper to allow manipulation of the actual array
@@ -58,16 +60,16 @@ void UUdonBlueprintSortLibrary::GenericSortAnyArray(
 	// get the size of one element
 	const auto& ElemSize = ElemProp->ElementSize;
 
-	// create array of UdonTransparentlySwappablePtr for TargetArray
-	TArray<UdonTransparentlySwappablePtr> TransparentlySorter;
+	// create array of VersedayTransparentlySwappablePtr for TargetArray
+	TArray<VersedayTransparentlySwappablePtr> TransparentlySorter;
 	TransparentlySorter.Reserve(NumArray);
 	for (auto i = decltype(NumArray){0}; i < NumArray; ++i) {
 		TransparentlySorter.Emplace(ArrayHelper.GetRawPtr(i), ElemSize);
 	}
 
 	// sort the elements of TargetArray
-	TransparentlySorter.Sort([&](const UdonTransparentlySwappablePtr& A,
-	                             const UdonTransparentlySwappablePtr& B) {
+	TransparentlySorter.Sort([&](const VersedayTransparentlySwappablePtr& A,
+	                             const VersedayTransparentlySwappablePtr& B) {
 		// get raw pointer of A
 		const auto* const PtrA = A.TargetPtr;
 
