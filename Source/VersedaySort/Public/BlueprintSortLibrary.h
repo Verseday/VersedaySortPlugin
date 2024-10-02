@@ -1,4 +1,4 @@
-// Copyright 2024 Udon-Tobira, All Rights Reserved.
+// Copyright 2024 Verseday, All Rights Reserved.
 
 #pragma once
 
@@ -14,7 +14,8 @@
  * Blueprint Function Library of sorting-related functions.
  */
 UCLASS()
-class VERSEDAYSORT_API UUdonBlueprintSortLibrary: public UBlueprintFunctionLibrary {
+class VERSEDAYSORT_API UUdonBlueprintSortLibrary
+    : public UBlueprintFunctionLibrary {
 	GENERATED_BODY()
 
 public:
