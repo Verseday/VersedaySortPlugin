@@ -8,7 +8,7 @@
 	"CreatedBy": "Verseday",
 	"CreatedByURL": "",
 	"DocsURL": "",
-	"MarketplaceURL": "",
+	"FabURL": "com.epicgames.launcher://ue/Fab/product/",
 	"SupportURL": "",
 	"CanContainContent": false,
 	"IsBetaVersion": false,
@@ -18,7 +18,10 @@
 		{
 			"Name": "VersedaySort",
 			"Type": "Runtime",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64"
+			]
 		}
 	]
 }
